@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://thumbs.dreamstime.com/z/d-medical-background-heart-render-68296895.jpg'); /* Replace with the path of your heart-related image */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+
+        }
+
+        .container {
+            width: 50%;
+            margin: 100px auto;
+            background-color: rgba(0, 0, 0, 0.5); /* Adding transparency for better readability */
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #ff5a5f;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        button {
+            background-color: #ff5a5f;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #ff3b3f;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            font-size: 18px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>🫀Heart Disease Risk Prediction❤️</h1>
+        <form method="POST">
+            <label for="age">Age:</label><br>
+            <input type="number" id="age" name="age" required><br>
+
+            <label for="sex">Sex (1 for Male, 0 for Female):</label><br>
+            <input type="number" id="sex" name="sex" required><br>
+
+            <label for="cigsPerDay">Cigarettes per day:</label><br>
+            <input type="number" id="cigsPerDay" name="cigsPerDay" required><br>
+
+            <label for="totChol">Total Cholesterol:</label><br>
+            <input type="number" id="totChol" name="totChol" required><br>
+
+            <label for="sysBP">Systolic Blood Pressure:</label><br>
+            <input type="number" id="sysBP" name="sysBP" required><br>
+
+            <label for="glucose">Glucose level:</label><br>
+            <input type="number" id="glucose" name="glucose" required><br><br>
+
+            <button type="submit">Predict Heart Disease Risk</button>
+        </form>
+
+        {% if prediction is not none %}
+            <div class="result">
+                <h2>Prediction Result:</h2>
+                {% if prediction == 1 %}
+                    <p>This person is at risk of heart disease.</p>
+                {% else %}
+                    <p>This person is NOT at risk of heart disease.</p>
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+
+</body>
+</html>
